@@ -155,35 +155,38 @@ const Div = styled.div`
 
 
 `
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
         <Div>
             <div class="form-container">
-      <div class="logo-container">
-      Bem vindo(a)
-      </div>
+                <div class="logo-container">
+                    Bem vindo(a)
+                </div>
 
-      
-      <div class="line"></div>
-      <form class="form">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input placeholder="Enter your email"  type="text"/>
-        </div>
 
-        <div class="form-group">
-          <label for="password">Senha</label>
-          <input name="password" placeholder="Enter your password" type="password"/>
-        </div>
+                <div class="line"></div>
+                <form class="form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input placeholder="Enter your email" type="text" />
+                    </div>
 
-        <button type="submit" class="form-submit-btn">Confirmar</button>
-      </form>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input name="password" placeholder="Enter your password" type="password" />
+                    </div>
 
-      <a class="forgot-password-link link" href="#">Esqueci a senha</a>
+                    <Link to="/administracao">
+                        <button type="submit" class="form-submit-btn">Confirmar</button>
+                    </Link>
+                </form>
 
-    </div>
-    </Div>
+                <a class="forgot-password-link link" href="#">Esqueci a senha</a>
+
+            </div>
+        </Div>
     )
 }
 

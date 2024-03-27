@@ -32,7 +32,7 @@ const Home = () => {
             <h2>Agende agora o check-list</h2>
             <div>
                 <Botao texto="Motorista" to="/motorista" />
-                <Botao texto="Administração" to="/administracao" />
+                <Botao texto="Administração" to="/login" />
             </div>
 
         </Container>
