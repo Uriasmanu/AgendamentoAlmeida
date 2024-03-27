@@ -153,50 +153,82 @@ const Div = styled.div`
   opacity: 0.1;
 }
 
+.agenda{
+    display: flex;
+    justify-content: space-around;
+}
 
+@media screen and (max-width: 600px){
+    .form-container {
+    width: 350px;
+    height: 68vh;
+    background-color: #fff;
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #212121;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+    }
+
+    .agenda{
+        display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+
+        input{
+            height: 33px;
+            margin-bottom: 10%;
+            border: 1px solid #ccc;
+        }
+    }
+}
 `
 
 const Motorista = () => {
     return (
         <Div>
             <div class="form-container">
-      <div class="logo-container">
-      Agende o melhor dia e horário para o check-list
-      </div>
-      
-      <div class="line"></div>
-      <form class="form">
+                <div class="logo-container">
+                    Agende o melhor dia e horário para o check-list
+                </div>
 
-        <div class="form-group">
-        <label htmlFor="nome">Nome:</label>
-        <input type="text" />
-        </div>
+                <div class="line"></div>
+                <form class="form">
 
-        <div class="form-group">
+                    <div class="form-group">
+                        <label htmlFor="nome">Nome:</label>
+                        <input type="text" />
+                    </div>
 
-          <label htmlFor="placa">Placa:</label>
-            <input type="text" />
+                    <div class="form-group">
 
-        </div>
+                        <label htmlFor="placa">Placa:</label>
+                        <input type="text" />
 
-        <div class="form-group">
+                    </div>
 
-        <label htmlFor="data">Data:</label>
-        <input type="date" />
+                    <div class="form-group">
 
-        </div>
+                        <div className="agenda">
+                            <label htmlFor="data">Data:</label>
+                            <input type="date" />
 
-        <div class="form-group">
 
-        <label htmlFor="hora">Hora:</label>
-        <input type="time" />
+                            <label htmlFor="hora">Hora:</label>
+                            <input type="time" />
+                        </div>
+                    </div>
 
-        </div>
-
-        <button type="submit" class="form-submit-btn">Confirmar</button>
-      </form>
-    </div>
-    </Div>
+                    <button type="submit" class="form-submit-btn">Confirmar</button>
+                </form>
+            </div>
+        </Div>
     )
 }
 
