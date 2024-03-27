@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Botoes = styled.button`
     background: #43B50D;
@@ -16,11 +17,13 @@ const Botoes = styled.button`
     }
 `
 
-const Botao = ({texto}) =>{
-    return(
-        <Botoes>
-        {texto}
-        </Botoes>
+const Botao = ({ texto, to }) => {
+    return (
+        <Link to={to}>
+            <Botoes>
+                {texto}
+            </Botoes>
+        </Link>
     )
 }
 

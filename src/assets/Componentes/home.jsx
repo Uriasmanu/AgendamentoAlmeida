@@ -31,8 +31,8 @@ const Home = () => {
             <h1>Bem Vindo!</h1>
             <h2>Agende agora o check-list</h2>
             <div>
-                <Botao texto="Motorista" />
-                <Botao texto="Administração" />
+                <Botao texto="Motorista" to="/motorista" />
+                <Botao texto="Administração" to="/administracao" />
             </div>
 
         </Container>

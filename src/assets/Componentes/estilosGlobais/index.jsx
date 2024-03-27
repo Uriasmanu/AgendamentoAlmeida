@@ -16,6 +16,9 @@ body {
     width: 100%;
     background-color: hsl(0, 0%, 100%);
     font-family: Space Grotesk, sans-serif; /* Aqui você define a fonte padrão para o corpo do documento */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 main {
   display: block;
