@@ -14,6 +14,9 @@ const Div = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+  position: absolute;
+  top: 10%;
+  left: 40%;
 }
 
 .form-container button:active {

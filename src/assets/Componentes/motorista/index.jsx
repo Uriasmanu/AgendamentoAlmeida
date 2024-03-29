@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { MyContext } from "../../context";
 
 const Div = styled.div`
    .form-container {
@@ -14,6 +16,9 @@ const Div = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+  position: absolute;
+  top: 10%;
+  left: 40%;
 }
 
 .form-container button:active {
@@ -160,7 +165,7 @@ const Div = styled.div`
 
 @media screen and (max-width: 600px){
     .form-container {
-    width: 350px;
+    width: 88vw;
     height: 68vh;
     background-color: #fff;
     padding: 32px 24px;
@@ -191,41 +196,77 @@ const Div = styled.div`
 `
 
 const Motorista = () => {
+  const {
+    nome, 
+    placa,
+    data,
+    hora,
+    handleNome, 
+    handlePlaca,  
+    handleData, 
+    handleHora,
+    handleSubmit
+  
+   } = useContext(MyContext);
+
     return (
         <Div>
-            <div class="form-container">
-                <div class="logo-container">
+            <div className="form-container">
+                <div className="logo-container">
                     Agende o melhor dia e horário para o check-list
                 </div>
 
-                <div class="line"></div>
-                <form class="form">
+                <div className="line"></div>
+                <form className="form" onSubmit={handleSubmit} >
 
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="nome">Nome:</label>
-                        <input type="text" />
+                        <input 
+                        type="text"
+                        value={nome}
+                        onChange={handleNome}
+                        required
+                        />
                     </div>
 
-                    <div class="form-group">
+                    <div className="form-group">
 
                         <label htmlFor="placa">Placa:</label>
-                        <input type="text" />
+                        <input 
+                        type="text" 
+                        value={placa}
+                        onChange={handlePlaca}
+                        required
+
+                        />
 
                     </div>
 
-                    <div class="form-group">
+                    <div className="form-group">
 
                         <div className="agenda">
                             <label htmlFor="data">Data:</label>
-                            <input type="date" />
+                            <input 
+                            type="date" 
+                            value={data}
+                            onChange={handleData}
+                            required
+
+                            />
 
 
                             <label htmlFor="hora">Hora:</label>
-                            <input type="time" />
+                            <input 
+                            type="time" 
+                            value={hora}
+                            onChange={handleHora}
+                            required
+
+                            />
                         </div>
                     </div>
 
-                    <button type="submit" class="form-submit-btn">Confirmar</button>
+                    <button type="submit" className="form-submit-btn">Confirmar</button>
                 </form>
             </div>
         </Div>

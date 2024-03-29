@@ -17,6 +17,7 @@ const Nav = styled.nav`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease-in-out;
   z-index: 999;
+  
 
   ul {
     padding: 20px;
