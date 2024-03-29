@@ -18,6 +18,14 @@ const ContainerAgradecimento = styled.div`
   position: absolute;
   top: 10%;
   left: 40%;
+
+  @media (max-width: 600px) {
+    width: 96vw;
+    height: 90vh;
+    top: 5%;
+    left: 2%;
+  }
+
 }
 `
 

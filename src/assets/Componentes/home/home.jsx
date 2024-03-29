@@ -1,4 +1,4 @@
-import Botao from './botao';
+import Botao from '../botao';
 import logo from '/public/imagens/logo.png'
 import styled from "styled-components";
 

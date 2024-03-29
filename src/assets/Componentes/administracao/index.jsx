@@ -4,8 +4,13 @@ import Calendario from "../calendario";
 
 import menu from '/public/imagens/menu.svg';
 import close from '/public/imagens/fechar.svg';
+import Lista from "../lista";
 
+const ContainerAdmim = styled.div`
+  .organiza{
 
+  }
+`
 
 const Nav = styled.nav`
   position: fixed;
@@ -66,7 +71,7 @@ const Adminstracao = () => {
   };
 
   return (
-    <>
+    <ContainerAdmim>
       <Nav isOpen={isMenuOpen}>
         <ul>
           <li>Frota</li>
@@ -80,8 +85,11 @@ const Adminstracao = () => {
         alt={isMenuOpen ? "Fechar" : "Menu"}
         onClick={toggleMenu}
       />
+      <div className="organiza">
       <Calendario />
-    </>
+      <Lista/>
+      </div>
+    </ContainerAdmim>
   );
 };
 
