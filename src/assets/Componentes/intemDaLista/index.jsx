@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import close from '/public/imagens/fechar.svg';
 import certo from '/public/imagens/done.svg';
+import { useContext } from "react";
+import { MyContext } from "../../context";
 
 const ContainerItens = styled.div`
 .info {
@@ -57,26 +59,27 @@ button{
 `
 
 const ItemDaLista = ({ placa, nome, hora }) => {
+
     return (
         <ContainerItens>
-            
-<div class="info">
-    <div class="info__icon">
-     
-    </div>
-    <div class="info__title">
-        <p>AWB2965</p>
-        <p>Manoela</p>
-        <p>12:20</p>
-    </div>
-    <div class="icones">
-        <button><img src={certo} alt="icone de certo" /></button>
 
-        <button><img src={close} alt="icone de fechar" /></button>
-        
-        
-    </div>
-</div>
+            <div class="info">
+                <div class="info__icon">
+
+                </div>
+                <div class="info__title">
+                    <p>{placa}</p>
+                    <p>{nome}</p>
+                    <p>{hora}</p>
+                </div>
+                <div class="icones">
+                    <button><img src={certo} alt="icone de certo" /></button>
+
+                    <button><img src={close} alt="icone de fechar" /></button>
+
+
+                </div>
+            </div>
         </ContainerItens>
     )
 }

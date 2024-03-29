@@ -64,6 +64,13 @@ export function MyProvider({ children }) {
     
         return true;
     }
+    useEffect(() => {
+      // Recupera a lista de veículos armazenada no localStorage
+      const storedListaVeiculos = localStorage.getItem("listaVeiculos");
+      if (storedListaVeiculos) {
+          setListaVeiculos(JSON.parse(storedListaVeiculos));
+      }
+  }, []);
 
       useEffect(()=>{
         const novaListaOrdenada = [...listaVeiculos].sort((a,b) =>{
@@ -75,6 +82,7 @@ export function MyProvider({ children }) {
 
         if (!isEqual(novaListaOrdenada, listaVeiculos)) {
             setListaVeiculos(novaListaOrdenada);
+            localStorage.setItem("listaVeiculos", JSON.stringify(novaListaOrdenada));
 
         }
 

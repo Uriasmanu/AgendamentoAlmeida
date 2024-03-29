@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import ItemDaLista from "../intemDaLista";
+import { useContext } from "react";
+import { MyContext } from "../../context";
 
 const ContainerLista = styled.div`
 .card {
@@ -37,17 +39,26 @@ const ContainerLista = styled.div`
 }
 `
 
-const Lista = ({dia}) =>{
-    return(
+const Lista = ({ dia }) => {
+    const {listaVeiculos} = useContext(MyContext);
+    
+    return (
         <ContainerLista>
             <div className="card">
                 <h2>Lista de Check-list do dia {dia}</h2>
 
-            <div className="lista">
-            <ItemDaLista/>
+                <div className="lista">
+                    {listaVeiculos.map((veiculo, index) => (
+                        <ItemDaLista
+                            key={index} // Certifique-se de fornecer uma chave única para cada item da lista
+                            placa={veiculo.placa}
+                            nome={veiculo.nome}
+                            hora={veiculo.hora}
+                        />
+                    ))}
 
+                </div>
             </div>
-        </div>
         </ContainerLista>
     )
 }
