@@ -4,12 +4,13 @@ import styled from 'styled-components';
 import proximo from '/public/imagens/direita.svg';
 import anterior from '/public/imagens/esquerda.svg';
 
+
 const CalendarioContainer = styled.div`
-  font-family: Arial, sans-serif;
-  text-align: center;
-  width: 3;
-  margin: 0 auto;
-  position: absolute;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 630px;
+    margin: 0 auto;
+    position: absolute;
     left: 5%;
     top: 20%;
 
@@ -21,6 +22,29 @@ const CalendarioContainer = styled.div`
     margin-left: 40px;
 
   }
+
+  @media (max-width: 600px) {
+    width: 90vw;
+    left: 1%;
+    top: 10%;
+
+    .dias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100vw;
+    margin-left: 10px;
+    }
+
+    .line{
+        width: 90vw;
+        height: 3px;
+        border: 1px solid #757474;
+        position: absolute;
+        left: 3%;
+        margin-top: 5%;
+    }
+}
 `;
 
 const Cabecalho = styled.div`
@@ -42,6 +66,33 @@ const Cabecalho = styled.div`
       cursor: pointer;
     }
   }
+
+  @media (max-width: 600px) {
+    display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 90vw;
+
+  h2{
+    font-size: 1rem;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: #757474;
+
+    img{
+        width: 1rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  }
+  
 `;
 
 const DiaSemana = styled.div`
@@ -51,7 +102,17 @@ const DiaSemana = styled.div`
   gap: 26px;
   color: #757474;
   font-size: 2rem;
+  margin-bottom: 1%;
 
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+    width: 95vw;
+    gap: 23px;
+    color: #757474;
+    font-size: 1rem;
+    margin-bottom: 1%;
+  }
 `;
 
 const Dia = styled.div.attrs(props => ({
@@ -73,6 +134,13 @@ const Dia = styled.div.attrs(props => ({
     cursor: pointer;
     border: solid 0.5px #757474;
   }
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    width: 49px;
+    height: 49px;
+  }
+
 `;
 
 const Calendario = () => {
@@ -135,6 +203,7 @@ const Calendario = () => {
   };
 
   return (
+
     <CalendarioContainer>
       <Cabecalho>
         <button onClick={mesAnterior}>
@@ -157,7 +226,9 @@ const Calendario = () => {
         <div>Sab</div>
       </DiaSemana>
       <div className="dias">{renderizarCalendario()}</div>
+      <div className='line' ></div>
     </CalendarioContainer>
+   
   );
 };
 
