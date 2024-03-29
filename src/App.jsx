@@ -4,7 +4,8 @@ import Home from "./assets/Componentes/home";
 import EstilosGlobais from "./assets/Componentes/estilosGlobais";
 import Motorista from "./assets/Componentes/motorista";
 import Login from "./assets/Componentes/login";
-import Adminstracao from "./assets/Componentes/estilosGlobais/administracao";
+import Adminstracao from "./assets/Componentes/administracao";
+
 
 
 function App() {

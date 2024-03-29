@@ -160,30 +160,30 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <Div>
-            <div class="form-container">
-                <div class="logo-container">
+            <div className="form-container">
+                <div className="logo-container">
                     Bem vindo(a)
                 </div>
 
 
-                <div class="line"></div>
+                <div className="line"></div>
                 <form class="form">
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="email">Email</label>
                         <input placeholder="Enter your email" type="text" />
                     </div>
 
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="password">Senha</label>
                         <input name="password" placeholder="Enter your password" type="password" />
                     </div>
 
                     <Link to="/administracao">
-                        <button type="submit" class="form-submit-btn">Confirmar</button>
+                        <button type="submit" className="form-submit-btn">Confirmar</button>
                     </Link>
                 </form>
 
-                <a class="forgot-password-link link" href="#">Esqueci a senha</a>
+                <a className="forgot-password-link link" href="#">Esqueci a senha</a>
 
             </div>
         </Div>
