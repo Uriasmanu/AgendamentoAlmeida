@@ -44,9 +44,39 @@ export function MyProvider({ children }) {
         setHora("");
 
       }
+      function isEqual(array1, array2) {
+        // Verifica se o tamanho das listas é o mesmo
+        if (array1.length !== array2.length) {
+            return false;
+        }
+    
+        // Compara os elementos individualmente
+        for (let i = 0; i < array1.length; i++) {
+            // Compara as propriedades de cada objeto
+            for (let key in array1[i]) {
+                if (array1[i][key] !== array2[i][key]) {
+                    return false;
+                }
+            }
+        }
+    
+        return true;
+    }
 
       useEffect(()=>{
-        console.log(listaVeiculos);
+        const novaListaOrdenada = [...listaVeiculos].sort((a,b) =>{
+            const dataA = new Date(a.data + " " + a.hora);
+            const dataB = new Date(b.data + " " + b.hora);
+            
+            return dataA - dataB;
+        })
+
+        if (!isEqual(novaListaOrdenada, listaVeiculos)) {
+            setListaVeiculos(novaListaOrdenada);
+
+        }
+
+        
       }, [listaVeiculos]);
 
   return (
