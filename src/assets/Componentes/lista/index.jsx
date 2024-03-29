@@ -39,8 +39,8 @@ const ContainerLista = styled.div`
 }
 `
 
-const Lista = ({ dia }) => {
-    const {listaVeiculos} = useContext(MyContext);
+const Lista = () => {
+    const {listaVeiculos, dia} = useContext(MyContext);
 
     return (
         <ContainerLista>
