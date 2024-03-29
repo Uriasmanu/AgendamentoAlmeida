@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { MyContext } from "../../context";
+import Agradecimento from "./agradecimento";
 
 const Div = styled.div`
    .form-container {
@@ -205,12 +206,16 @@ const Motorista = () => {
     handlePlaca,  
     handleData, 
     handleHora,
-    handleSubmit
+    handleSubmit,
+    formularioEnviado,
   
    } = useContext(MyContext);
 
     return (
         <Div>
+          {formularioEnviado ? ( // Renderiza o componente Agradecimento se o formulário foi enviado
+                <Agradecimento />
+            ) : (
             <div className="form-container">
                 <div className="logo-container">
                     Agende o melhor dia e horário para o check-list
@@ -269,6 +274,8 @@ const Motorista = () => {
                     <button type="submit" className="form-submit-btn">Confirmar</button>
                 </form>
             </div>
+)}
+          
         </Div>
     )
 }

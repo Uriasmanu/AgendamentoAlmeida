@@ -8,6 +8,7 @@ export function MyProvider({ children }) {
     const [data, setData] = useState("");
     const [hora, setHora] = useState("");
     const [listaVeiculos, setListaVeiculos] = useState([]);
+    const [formularioEnviado, setFormularioEnviado] = useState(false); 
 
     const handleNome = (event) =>{
         setNome(event.target.value); 
@@ -27,6 +28,7 @@ export function MyProvider({ children }) {
 
       const handleSubmit = (event) =>{
         event.preventDefault();
+        setFormularioEnviado(true);
 
         const novoChecklist = {
             id: placa,
@@ -83,7 +85,7 @@ export function MyProvider({ children }) {
     <MyContext.Provider value={{
         nome, placa, data, hora,
         handleNome, handlePlaca, handleData, handleHora, handleSubmit,
-        listaVeiculos
+        listaVeiculos,formularioEnviado
     }}>
       {children}
     </MyContext.Provider>
