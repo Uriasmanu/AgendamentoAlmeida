@@ -1,4 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export const MyContext = createContext();
 
@@ -8,7 +10,8 @@ export function MyProvider({ children }) {
     const [data, setData] = useState("");
     const [hora, setHora] = useState("");
     const [listaVeiculos, setListaVeiculos] = useState([]);
-    const [formularioEnviado, setFormularioEnviado] = useState(false); 
+    const navigate = useNavigate();
+
 
     const handleNome = (event) =>{
         setNome(event.target.value); 
@@ -26,9 +29,12 @@ export function MyProvider({ children }) {
          setHora(event.target.value); 
       }
 
+
+
       const handleSubmit = (event) =>{
         event.preventDefault();
-        setFormularioEnviado(true);
+        navigate("/agradece");
+
 
         const novoChecklist = {
             id: placa,
@@ -44,6 +50,7 @@ export function MyProvider({ children }) {
         setPlaca("");
         setData("");
         setHora("");
+
 
       }
       function isEqual(array1, array2) {
@@ -86,14 +93,15 @@ export function MyProvider({ children }) {
 
         }
 
-        
+        console.log(listaVeiculos)
       }, [listaVeiculos]);
+
 
   return (
     <MyContext.Provider value={{
         nome, placa, data, hora,
         handleNome, handlePlaca, handleData, handleHora, handleSubmit,
-        listaVeiculos,formularioEnviado
+        listaVeiculos,
     }}>
       {children}
     </MyContext.Provider>

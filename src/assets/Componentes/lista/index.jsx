@@ -41,7 +41,7 @@ const ContainerLista = styled.div`
 
 const Lista = ({ dia }) => {
     const {listaVeiculos} = useContext(MyContext);
-    
+
     return (
         <ContainerLista>
             <div className="card">
@@ -50,7 +50,7 @@ const Lista = ({ dia }) => {
                 <div className="lista">
                     {listaVeiculos.map((veiculo, index) => (
                         <ItemDaLista
-                            key={index} // Certifique-se de fornecer uma chave única para cada item da lista
+                            key={index} 
                             placa={veiculo.placa}
                             nome={veiculo.nome}
                             hora={veiculo.hora}

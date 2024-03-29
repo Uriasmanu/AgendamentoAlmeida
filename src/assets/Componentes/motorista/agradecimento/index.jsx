@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import logo from '/public/imagens/logo.png'
+import Botao from "../../botao";
 const ContainerAgradecimento = styled.div`
 
 .card {
@@ -37,7 +38,7 @@ const Agradecimento = () => {
                 
               <h1>Check-list agendado com sucesso. Obrigada!</h1>
               <img src={logo} alt="logo" />
-            
+            <Botao to='/' texto="Voltar"/>
             </div>
         </ContainerAgradecimento>
     )

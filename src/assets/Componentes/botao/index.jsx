@@ -17,10 +17,10 @@ const Botoes = styled.button`
     }
 `
 
-const Botao = ({ texto, to }) => {
+const Botao = ({ texto, to, type }) => {
     return (
         <Link to={to}>
-            <Botoes>
+            <Botoes type={type} >
                 {texto}
             </Botoes>
         </Link>

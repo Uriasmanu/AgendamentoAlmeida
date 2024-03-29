@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 import close from '/public/imagens/fechar.svg';
 import certo from '/public/imagens/done.svg';
-import { useContext } from "react";
-import { MyContext } from "../../context";
+
 
 const ContainerItens = styled.div`
 .info {
@@ -18,6 +17,7 @@ const ContainerItens = styled.div`
   border-radius: 8px;
   box-shadow: 0px 0px 5px -3px #111;
   box-sizing: border-box;
+  margin-bottom: 2%;
 }
 
 

@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { MyContext } from "../../context";
-import Agradecimento from "./agradecimento";
+import { Link } from "react-router-dom";
+
 
 const Div = styled.div`
    .form-container {
@@ -166,8 +167,8 @@ const Div = styled.div`
 
 @media screen and (max-width: 600px){
     .form-container {
-    width: 88vw;
-    height: 68vh;
+      width: 98vw;
+    height: 64vh;
     background-color: #fff;
     padding: 32px 24px;
     font-size: 14px;
@@ -179,6 +180,9 @@ const Div = styled.div`
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+    position: absolute;
+    top: 10%;
+    left: 2%;
     }
 
     .agenda{
@@ -207,15 +211,11 @@ const Motorista = () => {
     handleData, 
     handleHora,
     handleSubmit,
-    formularioEnviado,
   
    } = useContext(MyContext);
 
     return (
         <Div>
-          {formularioEnviado ? ( // Renderiza o componente Agradecimento se o formulário foi enviado
-                <Agradecimento />
-            ) : (
             <div className="form-container">
                 <div className="logo-container">
                     Agende o melhor dia e horário para o check-list
@@ -270,11 +270,10 @@ const Motorista = () => {
                             />
                         </div>
                     </div>
-
                     <button type="submit" className="form-submit-btn">Confirmar</button>
+
                 </form>
             </div>
-)}
           
         </Div>
     )
