@@ -242,7 +242,7 @@ const Motorista = () => {
                         value={placa}
                         onChange={handlePlaca}
                         required
-
+                        maxLength={6}
                         />
 
                     </div>

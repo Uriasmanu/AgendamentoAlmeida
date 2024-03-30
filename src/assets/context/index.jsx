@@ -18,7 +18,10 @@ export function MyProvider({ children }) {
      }
  
      const handlePlaca = (event) =>{
-         setPlaca(event.target.value); 
+        const inputPlaca = event.target.value;
+        if (inputPlaca.length <= 6) {
+          setPlaca(inputPlaca.toUpperCase());
+        }
       }
  
       const handleData = (event) =>{

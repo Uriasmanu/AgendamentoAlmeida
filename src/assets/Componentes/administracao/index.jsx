@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Calendario from "../calendario";
-
-import menu from '/public/imagens/menu.svg';
-import close from '/public/imagens/fechar.svg';
 import Lista from "../lista";
 import { Link } from "react-router-dom";
+import MenuLateral from "../MenuLateral";
+
 
 const ContainerAdmim = styled.div`
   .organiza{
@@ -16,13 +15,10 @@ const ContainerAdmim = styled.div`
 const Nav = styled.nav`
   position: fixed;
   top: 0;
-  left: ${(props) => (props.isOpen ? "0" : "-100vw")}; /* Esconde o menu lateral por padrão */
+  padding-left: 5%;
   width: 100vw;
-  height: 100%;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease-in-out;
-  z-index: 999;
+  height: 10%;
+  background-color: #04a756;
 
 
   ul {
@@ -30,61 +26,42 @@ const Nav = styled.nav`
     list-style: none;
     font-size: 120%;
     gap: 10%;
+    display: flex;
 
     li {
       cursor: pointer;
-      color: #757474;
+      color: #fff;
 
       a{
         text-decoration: none;
-
       }
-
     }
-
-    
   }
-
-  @media (max-width: 600px) {
-    left: ${(props) => (props.isOpen ? "0" : "-100vw")}; /* Altera a posição do menu lateral */
-
-    ul {
-        padding: 20px;
-    list-style: none;
-    font-size: 120%;
-    gap: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 22vh;
-    position: relative;
-    top: 5%;
-
-  }
-}
 `;
 
-const ToggleButton = styled.img`
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-  z-index: 1000;
-  width: 30px;
-`;
+
 
 const Adminstracao = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth > 600);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth > 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <ContainerAdmim>
-      <Nav isOpen={isMenuOpen}>
+      {isSmallScreen ? (
+        <Nav>
         <ul>
-          <Link to="/" >
+          <Link to="/">
             <li>Inicio</li>
           </Link>
 
@@ -103,14 +80,13 @@ const Adminstracao = () => {
           <Link to="/">
             <li>Proximo a vencer</li>
           </Link>
-
         </ul>
       </Nav>
-      <ToggleButton
-        src={isMenuOpen ? close : menu}
-        alt={isMenuOpen ? "Fechar" : "Menu"}
-        onClick={toggleMenu}
-      />
+      ) : (
+        <MenuLateral/>
+        
+      )}
+
       <div className="organiza">
         <Calendario />
         <Lista />
