@@ -5,6 +5,7 @@ import Calendario from "../calendario";
 import menu from '/public/imagens/menu.svg';
 import close from '/public/imagens/fechar.svg';
 import Lista from "../lista";
+import { Link } from "react-router-dom";
 
 const ContainerAdmim = styled.div`
   .organiza{
@@ -22,7 +23,7 @@ const Nav = styled.nav`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease-in-out;
   z-index: 999;
-  
+
 
   ul {
     padding: 20px;
@@ -32,7 +33,16 @@ const Nav = styled.nav`
 
     li {
       cursor: pointer;
+      color: #757474;
+
+      a{
+        text-decoration: none;
+
+      }
+
     }
+
+    
   }
 
   @media (max-width: 600px) {
@@ -74,10 +84,26 @@ const Adminstracao = () => {
     <ContainerAdmim>
       <Nav isOpen={isMenuOpen}>
         <ul>
-          <li>Frota</li>
-          <li>Agenda</li>
-          <li>Cancelados</li>
-          <li>Proximo a vencer</li>
+          <Link to="/" >
+            <li>Inicio</li>
+          </Link>
+
+          <Link to="/">
+            <li>Frota</li>
+          </Link>
+
+          <Link to="/administracao">
+            <li>Agenda</li>
+          </Link>
+
+          <Link to="/">
+            <li>Cancelados</li>
+          </Link>
+
+          <Link to="/">
+            <li>Proximo a vencer</li>
+          </Link>
+
         </ul>
       </Nav>
       <ToggleButton
@@ -86,8 +112,8 @@ const Adminstracao = () => {
         onClick={toggleMenu}
       />
       <div className="organiza">
-      <Calendario />
-      <Lista/>
+        <Calendario />
+        <Lista />
       </div>
     </ContainerAdmim>
   );

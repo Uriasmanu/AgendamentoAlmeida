@@ -156,6 +156,13 @@ const Div = styled.div`
   opacity: 0.1;
 }
 
+@media (max-width: 600px) {
+  .form-container {
+    width: 96vw;
+    top: 17%;
+    left: 2%;
+  }
+}
 
 `
 import { Link } from 'react-router-dom';
