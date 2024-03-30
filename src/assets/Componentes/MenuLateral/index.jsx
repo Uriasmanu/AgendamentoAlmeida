@@ -6,10 +6,7 @@ import close from '/public/imagens/fechar.svg';
 
 const ContainerMenu = styled.div`
 
-
-
 `;
-
 const Nav1 = styled.nav`
   position: fixed;
   top: 0;
@@ -130,7 +127,7 @@ const MenuLateral = () => {
           <li>Agenda</li>
         </Link>
 
-        <Link to="/">
+        <Link to="/cancelados">
           <li>Cancelados</li>
         </Link>
       </ul>
@@ -157,9 +154,9 @@ const MenuLateral = () => {
             <li>Agenda</li>
           </Link>
 
-          <Link to="/">
-            <li>Cancelados</li>
-          </Link>
+          <Link to="/cancelados">
+          <li>Cancelados</li>
+        </Link>
         </ul>
       </Nav>
       )}
