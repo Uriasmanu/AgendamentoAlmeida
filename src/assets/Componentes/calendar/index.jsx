@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list"; // Importa o plugin de lista
 import styled from 'styled-components';
+import { MyContext } from "../../context";
 
 const StyledCalendar = styled.div`
 height: 100vh;
@@ -25,6 +26,9 @@ height: 100vh;
 `;
 
 function Calendar() {
+
+    const {listaVeiculos} = useContext(MyContext);
+
   return (
     <StyledCalendar>
       <div className="containerFull">
@@ -37,21 +41,7 @@ function Calendar() {
             end: "dayGridMonth,listWeek",
             
           }}
-          events={[
-            {
-                title: 'Meeting',
-                start: '2024-03-31T14:30:00',
-                extendedProps: {
-                  status: 'done'
-                }
-              },
-              {
-                title: 'Birthday Party',
-                start: '2024-04-01T07:00:00',
-                backgroundColor: 'green',
-                borderColor: 'green'
-              }
-          ]}
+          events={listaVeiculos}
           
         />
       </div>
