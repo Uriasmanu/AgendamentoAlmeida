@@ -26,9 +26,5 @@ const Frota = () => {
     )
 }
 
-export default Inicio;
-        </>
-    )
-}
 
-export default Cancelados;
+export default Frota;
