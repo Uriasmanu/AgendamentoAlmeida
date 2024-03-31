@@ -1,6 +1,8 @@
+import MenuLateral from "../MenuLateral";
+
 const Cancelados = () =>{
     return(
-        <>teste</>
+        <MenuLateral/>
     )
 }
 

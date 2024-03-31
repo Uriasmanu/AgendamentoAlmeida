@@ -119,7 +119,7 @@ const MenuLateral = () => {
           <li>Inicio</li>
         </Link>
 
-        <Link to="/">
+        <Link to="/frota">
           <li>Frota</li>
         </Link>
 
@@ -146,7 +146,7 @@ const MenuLateral = () => {
             <li>Inicio</li>
           </Link>
 
-          <Link to="/">
+          <Link to="/frota">
             <li>Frota</li>
           </Link>
 
