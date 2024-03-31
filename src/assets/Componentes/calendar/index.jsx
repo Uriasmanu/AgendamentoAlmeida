@@ -35,12 +35,13 @@ function Calendar() {
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           initialView='listWeek'
+          
           headerToolbar={{
             start: "prev,next",
             center: "title",
             end: "dayGridMonth,listWeek",
-            
           }}
+          
           events={listaVeiculos}
           
         />

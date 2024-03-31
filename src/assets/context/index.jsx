@@ -35,7 +35,7 @@ export function MyProvider({ children }) {
     navigate("/agradece");
 
     const novoChecklist = {
-      title: nome,
+      title: placa,
       start: `${data}T${hora}:00`,
       backgroundColor: "green",
       borderColor: "green",
@@ -50,19 +50,18 @@ export function MyProvider({ children }) {
   };
 
   useEffect(() => {
-    // Recupera a lista de veículos armazenada no localStorage
+    // Recupera a lista de veículos armazenada no localStorage ao carregar a página
     const storedListaVeiculos = localStorage.getItem("listaVeiculos");
     if (storedListaVeiculos) {
       setListaVeiculos(JSON.parse(storedListaVeiculos));
+
     }
-  }, []);
+  }, []); // useEffect executará apenas uma vez ao carregar a página, pois a dependência está vazia
 
   useEffect(() => {
-    // Armazena a lista de veículos no localStorage sempre que houver uma alteração
+    // Atualiza o localStorage sempre que a lista de veículos for modificada
     localStorage.setItem("listaVeiculos", JSON.stringify(listaVeiculos));
-    console.log(listaVeiculos)
-  }, [listaVeiculos]);
-
+  }, [listaVeiculos]); // useEffect será acionado sempre que listaVeiculos for modificado
   return (
     <MyContext.Provider
       value={{
